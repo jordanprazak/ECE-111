@@ -1,0 +1,20 @@
+Analysis & Synthesis Status : Successful - Mon May 22 12:49:54 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : md5
+Top-level Entity Name : md5
+Family : Arria II GX
+Logic utilization : N/A
+    Combinational ALUTs : 1,766
+    Memory ALUTs : 0
+    Dedicated logic registers : 861
+Total registers : 861
+Total pins : 182
+Total virtual pins : 0
+Total block memory bits : 0
+DSP block 18-bit elements : 0
+Total GXB Receiver Channel PCS : 0
+Total GXB Receiver Channel PMA : 0
+Total GXB Transmitter Channel PCS : 0
+Total GXB Transmitter Channel PMA : 0
+Total PLLs : 0
+Total DLLs : 0

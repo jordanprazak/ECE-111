@@ -1,0 +1,22 @@
+Fitter Status : Successful - Mon May 22 12:52:06 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : md5
+Top-level Entity Name : md5
+Family : Arria II GX
+Device : EP2AGX45DF29I5
+Timing Models : Final
+Logic utilization : 6 %
+    Combinational ALUTs : 1,796 / 36,100 ( 5 % )
+    Memory ALUTs : 0 / 18,050 ( 0 % )
+    Dedicated logic registers : 861 / 36,100 ( 2 % )
+Total registers : 861
+Total pins : 182 / 404 ( 45 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 2,939,904 ( 0 % )
+DSP block 18-bit elements : 0 / 232 ( 0 % )
+Total GXB Receiver Channel PCS : 0 / 8 ( 0 % )
+Total GXB Receiver Channel PMA : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PCS : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PMA : 0 / 8 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )

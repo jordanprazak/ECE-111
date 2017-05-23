@@ -1,0 +1,471 @@
+Analysis & Synthesis report for md5
+Mon May 22 12:49:55 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |md5|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |md5
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++-----------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status       ; Successful - Mon May 22 12:49:54 2017       ;
+; Quartus Prime Version             ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                     ; md5                                         ;
+; Top-level Entity Name             ; md5                                         ;
+; Family                            ; Arria II GX                                 ;
+; Logic utilization                 ; N/A                                         ;
+;     Combinational ALUTs           ; 1,766                                       ;
+;     Memory ALUTs                  ; 0                                           ;
+;     Dedicated logic registers     ; 861                                         ;
+; Total registers                   ; 861                                         ;
+; Total pins                        ; 182                                         ;
+; Total virtual pins                ; 0                                           ;
+; Total block memory bits           ; 0                                           ;
+; DSP block 18-bit elements         ; 0                                           ;
+; Total GXB Receiver Channel PCS    ; 0                                           ;
+; Total GXB Receiver Channel PMA    ; 0                                           ;
+; Total GXB Transmitter Channel PCS ; 0                                           ;
+; Total GXB Transmitter Channel PMA ; 0                                           ;
+; Total PLLs                        ; 0                                           ;
+; Total DLLs                        ; 0                                           ;
++-----------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; EP2AGX45DF29I5     ;                    ;
+; Top-level entity name                                                           ; md5                ; md5                ;
+; Family name                                                                     ; Arria II GX        ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                        ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                               ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                              ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------+---------+
+; md5.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++-----------------------------------------------+-----------+
+; Resource                                      ; Usage     ;
++-----------------------------------------------+-----------+
+; Estimated ALUTs Used                          ; 1766      ;
+;     -- Combinational ALUTs                    ; 1766      ;
+;     -- Memory ALUTs                           ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+; Dedicated logic registers                     ; 861       ;
+;                                               ;           ;
+; Estimated ALUTs Unavailable                   ; 474       ;
+;     -- Due to unpartnered combinational logic ; 474       ;
+;     -- Due to Memory ALUTs                    ; 0         ;
+;                                               ;           ;
+; Total combinational functions                 ; 1766      ;
+; Combinational ALUT usage by number of inputs  ;           ;
+;     -- 7 input functions                      ; 8         ;
+;     -- 6 input functions                      ; 466       ;
+;     -- 5 input functions                      ; 185       ;
+;     -- 4 input functions                      ; 67        ;
+;     -- <=3 input functions                    ; 1040      ;
+;                                               ;           ;
+; Combinational ALUTs by mode                   ;           ;
+;     -- normal mode                            ; 1372      ;
+;     -- extended LUT mode                      ; 8         ;
+;     -- arithmetic mode                        ; 354       ;
+;     -- shared arithmetic mode                 ; 32        ;
+;                                               ;           ;
+; Estimated ALUT/register pairs used            ; 2240      ;
+;                                               ;           ;
+; Total registers                               ; 861       ;
+;     -- Dedicated logic registers              ; 861       ;
+;     -- I/O registers                          ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+;                                               ;           ;
+;                                               ;           ;
+; I/O pins                                      ; 182       ;
+;                                               ;           ;
+; DSP block 18-bit elements                     ; 0         ;
+;                                               ;           ;
+; Maximum fan-out node                          ; clk~input ;
+; Maximum fan-out                               ; 862       ;
+; Total fan-out                                 ; 9783      ;
+; Average fan-out                               ; 3.27      ;
++-----------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------+--------------+
+; |md5                       ; 1766 (1766)         ; 861 (861)                 ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 182  ; 0            ; |md5                ; md5         ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |md5|state                                       ;
++-------------+-------------+------------+------------+------------+
+; Name        ; state.WRITE ; state.READ ; state.COMP ; state.IDLE ;
++-------------+-------------+------------+------------+------------+
+; state.IDLE  ; 0           ; 0          ; 0          ; 0          ;
+; state.COMP  ; 0           ; 0          ; 1          ; 1          ;
+; state.READ  ; 0           ; 1          ; 0          ; 1          ;
+; state.WRITE ; 1           ; 0          ; 0          ; 1          ;
++-------------+-------------+------------+------------+------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; done~reg0                             ; Stuck at VCC due to stuck port data_in ;
+; state~8                               ; Lost fanout                            ;
+; state~9                               ; Lost fanout                            ;
+; Total Number of Removed Registers = 3 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 861   ;
+; Number of registers using Synchronous Clear  ; 68    ;
+; Number of registers using Synchronous Load   ; 220   ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 343   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; 4:1                ; 16 bits   ; 32 ALUTs      ; 0 ALUTs              ; 32 ALUTs               ; Yes        ; |md5|wc[14]                 ;
+; 5:1                ; 128 bits  ; 384 ALUTs     ; 128 ALUTs            ; 256 ALUTs              ; Yes        ; |md5|h2[12]                 ;
+; 5:1                ; 128 bits  ; 384 ALUTs     ; 256 ALUTs            ; 128 ALUTs              ; Yes        ; |md5|b[20]                  ;
+; 6:1                ; 3 bits    ; 12 ALUTs      ; 6 ALUTs              ; 6 ALUTs                ; Yes        ; |md5|t[2]                   ;
+; 7:1                ; 5 bits    ; 20 ALUTs      ; 10 ALUTs             ; 10 ALUTs               ; Yes        ; |md5|t[4]                   ;
+; 7:1                ; 16 bits   ; 64 ALUTs      ; 32 ALUTs             ; 32 ALUTs               ; Yes        ; |md5|rc[13]                 ;
+; 256:1              ; 32 bits   ; 5440 ALUTs    ; 64 ALUTs             ; 5376 ALUTs             ; Yes        ; |md5|mem_write_data[8]~reg0 ;
+; 8:1                ; 15 bits   ; 75 ALUTs      ; 30 ALUTs             ; 45 ALUTs               ; Yes        ; |md5|mem_addr[7]~reg0       ;
+; 4:1                ; 25 bits   ; 50 ALUTs      ; 50 ALUTs             ; 0 ALUTs                ; No         ; |md5|ShiftLeft0             ;
+; 4:1                ; 25 bits   ; 50 ALUTs      ; 50 ALUTs             ; 0 ALUTs                ; No         ; |md5|ShiftRight0            ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |md5|ShiftLeft0             ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |md5|ShiftLeft0             ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |md5|ShiftLeft0             ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |md5|ShiftRight0            ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |md5|ShiftRight0            ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |md5|ShiftRight0            ;
+; 3:1                ; 16 bits   ; 32 ALUTs      ; 32 ALUTs             ; 0 ALUTs                ; No         ; |md5|ShiftRight0            ;
+; 4:1                ; 3 bits    ; 6 ALUTs       ; 6 ALUTs              ; 0 ALUTs                ; No         ; |md5|w_in                   ;
+; 5:1                ; 12 bits   ; 36 ALUTs      ; 36 ALUTs             ; 0 ALUTs                ; No         ; |md5|ShiftLeft0             ;
+; 5:1                ; 4 bits    ; 12 ALUTs      ; 12 ALUTs             ; 0 ALUTs                ; No         ; |md5|w_in                   ;
+; 6:1                ; 12 bits   ; 48 ALUTs      ; 48 ALUTs             ; 0 ALUTs                ; No         ; |md5|ShiftRight0            ;
+; 8:1                ; 4 bits    ; 20 ALUTs      ; 20 ALUTs             ; 0 ALUTs                ; No         ; |md5|ShiftLeft0             ;
+; 6:1                ; 7 bits    ; 28 ALUTs      ; 21 ALUTs             ; 7 ALUTs                ; No         ; |md5|w_in                   ;
+; 6:1                ; 8 bits    ; 32 ALUTs      ; 24 ALUTs             ; 8 ALUTs                ; No         ; |md5|w_in                   ;
+; 6:1                ; 7 bits    ; 28 ALUTs      ; 21 ALUTs             ; 7 ALUTs                ; No         ; |md5|w_in                   ;
+; 9:1                ; 4 bits    ; 24 ALUTs      ; 24 ALUTs             ; 0 ALUTs                ; No         ; |md5|ShiftRight0            ;
+; 33:1               ; 32 bits   ; 704 ALUTs     ; 352 ALUTs            ; 352 ALUTs              ; No         ; |md5|w_in[10]               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |md5                                              ;
++----------------+----------------------------------------------------------------------------------+--------------+
+; Parameter Name ; Value                                                                            ; Type         ;
++----------------+----------------------------------------------------------------------------------+--------------+
+; k              ; (-680876936,-389564586,606105819,-1044525330,-176418897,1200080426,-1473231341,- ; Array/Record ;
+; k              ; 45705983,1770035416,-1958414417,-42063,-1990404162,1804603682,-40341101,-1502002 ;              ;
+; k              ; 290,1236535329,-165796510,-1069501632,643717713,-373897302,-701558691,38016083,- ;              ;
+; k              ; 660478335,-405537848,568446438,-1019803690,-187363961,1163531501,-1444681467,-51 ;              ;
+; k              ; 403784,1735328473,-1926607734,-378558,-2022574463,1839030562,-35309556,-15309920 ;              ;
+; k              ; 60,1272893353,-155497632,-1094730640,681279174,-358537222,-722521979,76029189,-6 ;              ;
+; k              ; 40364487,-421815835,530742520,-995338651,-198630844,1126891415,-1416354905,-5743 ;              ;
+; k              ; 4055,1700485571,-1894986606,-1051523,-2054922799,1873313359,-30611744,-156019838 ;              ;
+;                ; 0,1309151649,-145523070,-1120210379,718787259,-343485551)                        ;              ;
+; S              ; (00000111,00001100,00010001,00010110,00000111,00001100,00010001,00010110,0000011 ; Array/Record ;
+; S              ; 1,00001100,00010001,00010110,00000111,00001100,00010001,00010110,00000101,000010 ;              ;
+; S              ; 01,00001110,00010100,00000101,00001001,00001110,00010100,00000101,00001001,00001 ;              ;
+; S              ; 110,00010100,00000101,00001001,00001110,00010100,00000100,00001011,00010000,0001 ;              ;
+; S              ; 0111,00000100,00001011,00010000,00010111,00000100,00001011,00010000,00010111,000 ;              ;
+; S              ; 00100,00001011,00010000,00010111,00000110,00001010,00001111,00010101,00000110,00 ;              ;
+; S              ; 001010,00001111,00010101,00000110,00001010,00001111,00010101,00000110,00001010,0 ;              ;
+;                ; 0001111,00010101)                                                                ;              ;
++----------------+----------------------------------------------------------------------------------+--------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriaii_ff            ; 861                         ;
+;     CLR               ; 4                           ;
+;     ENA               ; 55                          ;
+;     ENA SCLR          ; 68                          ;
+;     ENA SLD           ; 220                         ;
+;     plain             ; 514                         ;
+; boundary_port         ; 182                         ;
+; stratixiv_lcell_comb  ; 1767                        ;
+;     arith             ; 354                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 111                         ;
+;         2 data inputs ; 168                         ;
+;         4 data inputs ; 17                          ;
+;         5 data inputs ; 56                          ;
+;     extend            ; 8                           ;
+;         7 data inputs ; 8                           ;
+;     normal            ; 1373                        ;
+;         0 data inputs ; 2                           ;
+;         2 data inputs ; 33                          ;
+;         3 data inputs ; 693                         ;
+;         4 data inputs ; 50                          ;
+;         5 data inputs ; 129                         ;
+;         6 data inputs ; 466                         ;
+;     shared            ; 32                          ;
+;         3 data inputs ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 21.10                       ;
+; Average LUT depth     ; 10.71                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:20     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Mon May 22 12:48:49 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off md5 -c md5
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tb_md5.sv
+    Info (12023): Found entity 1: tb_md5 File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/tb_md5.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file md5.sv
+    Info (12023): Found entity 1: md5 File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 1
+Info (12127): Elaborating entity "md5" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at md5.sv(76): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 76
+Warning (10230): Verilog HDL assignment warning at md5.sv(146): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 146
+Warning (10230): Verilog HDL assignment warning at md5.sv(164): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 164
+Warning (10230): Verilog HDL assignment warning at md5.sv(165): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 165
+Warning (10230): Verilog HDL assignment warning at md5.sv(171): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 171
+Warning (10230): Verilog HDL assignment warning at md5.sv(173): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 173
+Warning (10230): Verilog HDL assignment warning at md5.sv(179): truncated value with size 32 to match size of target (8) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 179
+Warning (10764): Verilog HDL warning at md5.sv(66): converting signed shift amount to unsigned File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 66
+Warning (10230): Verilog HDL assignment warning at md5.sv(199): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 199
+Warning (10230): Verilog HDL assignment warning at md5.sv(200): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 200
+Warning (10230): Verilog HDL assignment warning at md5.sv(210): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 210
+Warning (10230): Verilog HDL assignment warning at md5.sv(215): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 215
+Warning (10230): Verilog HDL assignment warning at md5.sv(221): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 221
+Warning (10230): Verilog HDL assignment warning at md5.sv(227): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 227
+Warning (10230): Verilog HDL assignment warning at md5.sv(244): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 244
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "done" is stuck at VCC File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 3
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 32 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "message_addr[16]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[17]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[18]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[19]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[20]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[21]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[22]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[23]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[24]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[25]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[26]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[27]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[28]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[29]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[30]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "message_addr[31]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[16]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[17]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[18]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[19]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[20]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[21]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[22]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[23]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[24]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[25]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[26]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[27]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[28]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[29]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[30]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+    Warning (15610): No output dependent on input pin "output_addr[31]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/md5/md5.sv Line: 2
+Info (21057): Implemented 2076 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 131 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 1894 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 51 warnings
+    Info: Peak virtual memory: 738 megabytes
+    Info: Processing ended: Mon May 22 12:49:55 2017
+    Info: Elapsed time: 00:01:06
+    Info: Total CPU time (on all processors): 00:01:32
+
+
