@@ -1,13 +1,9 @@
 module sha256(input logic clk, reset_n, start,
-              input logic [31:0] message_addr, size, output_addr,
-             output logic done, mem_clk, mem_we,
-             output logic [15:0] mem_addr,
-             output logic [31:0] mem_write_data,
-              input logic [31:0] mem_read_data);
-
-function logic [31:0] right_rot(input logic [31:0] value, input logic [5:0] rot_amt);
-  right_rot = (value >> rot_amt) | (value << (6'd32-rot_amt));
-endfunction
+            input logic [31:0] message_addr, size, output_addr,
+           output logic done, mem_clk, mem_we,
+           output logic [15:0] mem_addr,
+           output logic [31:0] mem_write_data,
+            input logic [31:0] mem_read_data);
 
 // SHA256 K constants
 parameter int k[0:63] = '{
@@ -21,17 +17,17 @@ parameter int k[0:63] = '{
    32'h748f82ee, 32'h78a5636f, 32'h84c87814, 32'h8cc70208, 32'h90befffa, 32'ha4506ceb, 32'hbef9a3f7, 32'hc67178f2
 };
 
-function logic [159:0] hash_op(input logic [31:0] a, b, c, d, e, f, g, h, w,
+function logic [255:0] hash_op(input logic [31:0] a, b, c, d, e, f, g, h, w,
                                input logic [7:0] t);
   logic [31:0] s0, s1, maj, t2, ch, t1;
 
-  s0 = right_rot(a, 6'd2) ^ right_rot(a, 6'd13) ^ right_rot(a, 6'd22);
+  s0 = ((a >> 2) | (a << 30)) ^ ((a >> 13) | (a << 19)) ^ ((a >> 22) | (a << 10));
 
   maj = (a&b) ^ (a&c) ^ (b&c);
 
   t2 = s0 + maj;
 
-  s1 = right_rot(e, 6'd6) ^ right_rot(e, 6'd11) ^ right_rot(e, 6'd25);
+  s1 = ((e >> 6) | (e << 26)) ^ ((e >> 11) | (e << 21)) ^ ((e >> 25) | (e << 7));
 
   ch = (e&f) ^ (~e&g);
 
@@ -49,6 +45,7 @@ assign num_blocks = 1 + ((size + 8) >> 6);
 
 // Use state variable to track reads and writes
 enum logic [1:0] {IDLE=2'b00, COMP=2'b01, READ=2'b10, WRITE=2'b11} state;
+
 
 // Create read and write counters
 logic [15:0] rc, wc;
@@ -87,14 +84,12 @@ always_comb begin
         w_in = {size[28:0], 3'd0};
       end
       else begin
-        w_in = 32'd0;
+        w_in = 32'd0;   //pad with zeros
       end
     end
   end
-  else begin
-    //s0 = right_rot(w[14], 6'd7) ^ right_rot(w[14], 6'd18) ^ (w[14] >> 3);
-    //s1 = right_rot(w[1], 6'd17) ^ right_rot(w[1], 6'd19) ^ (w[1] >> 10);
-    w_in = w[15] + right_rot(w[14], 6'd7) ^ right_rot(w[14], 6'd18) ^ (w[14] >> 3) + w[6] + right_rot(w[1], 6'd17) ^ right_rot(w[1], 6'd19) ^ (w[1] >> 10);
+  else begin //generate new values of w using previous values
+    w_in = w[15] + (((w[14] >> 7) | (w[14] << 25)) ^ ((w[14] >> 18) | (w[14] << 14)) ^ (w[14] >> 3)) + w[6] + (((w[1] >> 17) | (w[1] << 15)) ^ ((w[1] >> 19) | (w[1] << 13)) ^ (w[1] >> 10));
   end
 end
 
@@ -137,7 +132,7 @@ begin
           rc <= rc + 1;
       end
       COMP: begin
-        if (t <= 63) begin // change to 63 for sha256
+          if (t <= 63) begin    //changed to 63 for md5
           state <= COMP;
           mem_we <= 0;
           mem_addr <= message_addr + rc;
@@ -146,10 +141,10 @@ begin
           end
           t <= t + 1;
           {a, b, c, d, e, f, g, h} <= hash_op(a, b, c, d, e, f, g, h, w_in, t);
-          w[15] <= w_in;
-            for(int i = 14; i >= 0; i--) begin
-              w[i] <= w[i+1];
-            end
+          w[0] <= w_in;
+          for(int i = 1; i <= 15; i++) begin
+            w[i] <= w[i-1];
+          end
         end
         else begin
           h0 <= h0 + a;
@@ -243,4 +238,8 @@ begin
   end
 end
 
-endmodule 
+
+
+    
+
+endmodule   

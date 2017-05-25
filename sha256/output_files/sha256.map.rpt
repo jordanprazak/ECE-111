@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sha256
-Thu May 25 12:03:30 2017
+Thu May 25 15:10:31 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -47,16 +47,16 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status       ; Successful - Thu May 25 12:03:30 2017       ;
+; Analysis & Synthesis Status       ; Successful - Thu May 25 15:10:31 2017       ;
 ; Quartus Prime Version             ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                     ; sha256                                      ;
 ; Top-level Entity Name             ; sha256                                      ;
 ; Family                            ; Arria II GX                                 ;
 ; Logic utilization                 ; N/A                                         ;
-;     Combinational ALUTs           ; 1,287                                       ;
+;     Combinational ALUTs           ; 1,902                                       ;
 ;     Memory ALUTs                  ; 0                                           ;
-;     Dedicated logic registers     ; 1,085                                       ;
-; Total registers                   ; 1085                                        ;
+;     Dedicated logic registers     ; 1,117                                       ;
+; Total registers                   ; 1117                                        ;
 ; Total pins                        ; 182                                         ;
 ; Total virtual pins                ; 0                                           ;
 ; Total block memory bits           ; 0                                           ;
@@ -190,34 +190,34 @@ agreement for further details.
 +-----------------------------------------------+-----------+
 ; Resource                                      ; Usage     ;
 +-----------------------------------------------+-----------+
-; Estimated ALUTs Used                          ; 1287      ;
-;     -- Combinational ALUTs                    ; 1287      ;
+; Estimated ALUTs Used                          ; 1902      ;
+;     -- Combinational ALUTs                    ; 1902      ;
 ;     -- Memory ALUTs                           ; 0         ;
 ;     -- LUT_REGs                               ; 0         ;
-; Dedicated logic registers                     ; 1085      ;
+; Dedicated logic registers                     ; 1117      ;
 ;                                               ;           ;
-; Estimated ALUTs Unavailable                   ; 0         ;
-;     -- Due to unpartnered combinational logic ; 0         ;
+; Estimated ALUTs Unavailable                   ; 264       ;
+;     -- Due to unpartnered combinational logic ; 264       ;
 ;     -- Due to Memory ALUTs                    ; 0         ;
 ;                                               ;           ;
-; Total combinational functions                 ; 1287      ;
+; Total combinational functions                 ; 1902      ;
 ; Combinational ALUT usage by number of inputs  ;           ;
-;     -- 7 input functions                      ; 0         ;
-;     -- 6 input functions                      ; 202       ;
-;     -- 5 input functions                      ; 46        ;
-;     -- 4 input functions                      ; 56        ;
-;     -- <=3 input functions                    ; 983       ;
+;     -- 7 input functions                      ; 2         ;
+;     -- 6 input functions                      ; 262       ;
+;     -- 5 input functions                      ; 28        ;
+;     -- 4 input functions                      ; 12        ;
+;     -- <=3 input functions                    ; 1598      ;
 ;                                               ;           ;
 ; Combinational ALUTs by mode                   ;           ;
-;     -- normal mode                            ; 708       ;
-;     -- extended LUT mode                      ; 0         ;
+;     -- normal mode                            ; 1289      ;
+;     -- extended LUT mode                      ; 2         ;
 ;     -- arithmetic mode                        ; 483       ;
-;     -- shared arithmetic mode                 ; 96        ;
+;     -- shared arithmetic mode                 ; 128       ;
 ;                                               ;           ;
-; Estimated ALUT/register pairs used            ; 1589      ;
+; Estimated ALUT/register pairs used            ; 2166      ;
 ;                                               ;           ;
-; Total registers                               ; 1085      ;
-;     -- Dedicated logic registers              ; 1085      ;
+; Total registers                               ; 1117      ;
+;     -- Dedicated logic registers              ; 1117      ;
 ;     -- I/O registers                          ; 0         ;
 ;     -- LUT_REGs                               ; 0         ;
 ;                                               ;           ;
@@ -227,9 +227,9 @@ agreement for further details.
 ; DSP block 18-bit elements                     ; 0         ;
 ;                                               ;           ;
 ; Maximum fan-out node                          ; clk~input ;
-; Maximum fan-out                               ; 1086      ;
-; Total fan-out                                 ; 8287      ;
-; Average fan-out                               ; 3.03      ;
+; Maximum fan-out                               ; 1118      ;
+; Total fan-out                                 ; 10302     ;
+; Average fan-out                               ; 3.05      ;
 +-----------------------------------------------+-----------+
 
 
@@ -238,7 +238,7 @@ agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------+--------------+
-; |sha256                    ; 1287 (1287)         ; 1085 (1085)               ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 182  ; 0            ; |sha256             ; sha256      ; work         ;
+; |sha256                    ; 1902 (1902)         ; 1117 (1117)               ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 182  ; 0            ; |sha256             ; sha256      ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -273,12 +273,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1085  ;
-; Number of registers using Synchronous Clear  ; 310   ;
-; Number of registers using Synchronous Load   ; 98    ;
+; Total registers                              ; 1117  ;
+; Number of registers using Synchronous Clear  ; 104   ;
+; Number of registers using Synchronous Load   ; 440   ;
 ; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1078  ;
+; Number of registers using Clock Enable       ; 599   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -289,19 +289,18 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 ; 4:1                ; 16 bits   ; 32 ALUTs      ; 0 ALUTs              ; 32 ALUTs               ; Yes        ; |sha256|wc[1]                   ;
-; 5:1                ; 96 bits   ; 288 ALUTs     ; 96 ALUTs             ; 192 ALUTs              ; Yes        ; |sha256|b[0]                    ;
-; 5:1                ; 256 bits  ; 768 ALUTs     ; 256 ALUTs            ; 512 ALUTs              ; Yes        ; |sha256|h0[2]                   ;
-; 5:1                ; 160 bits  ; 480 ALUTs     ; 320 ALUTs            ; 160 ALUTs              ; Yes        ; |sha256|e[7]                    ;
+; 5:1                ; 256 bits  ; 768 ALUTs     ; 256 ALUTs            ; 512 ALUTs              ; Yes        ; |sha256|h2[22]                  ;
+; 5:1                ; 256 bits  ; 768 ALUTs     ; 512 ALUTs            ; 256 ALUTs              ; Yes        ; |sha256|e[13]                   ;
 ; 6:1                ; 4 bits    ; 16 ALUTs      ; 8 ALUTs              ; 8 ALUTs                ; Yes        ; |sha256|t[3]                    ;
-; 6:1                ; 16 bits   ; 64 ALUTs      ; 16 ALUTs             ; 48 ALUTs               ; Yes        ; |sha256|rc[14]                  ;
-; 7:1                ; 4 bits    ; 16 ALUTs      ; 8 ALUTs              ; 8 ALUTs                ; Yes        ; |sha256|t[5]                    ;
-; 256:1              ; 32 bits   ; 5440 ALUTs    ; 160 ALUTs            ; 5280 ALUTs             ; Yes        ; |sha256|mem_write_data[31]~reg0 ;
-; 8:1                ; 16 bits   ; 80 ALUTs      ; 32 ALUTs             ; 48 ALUTs               ; Yes        ; |sha256|mem_addr[3]~reg0        ;
-; 5:1                ; 3 bits    ; 9 ALUTs       ; 9 ALUTs              ; 0 ALUTs                ; No         ; |sha256|w_in[2]                 ;
+; 6:1                ; 16 bits   ; 64 ALUTs      ; 16 ALUTs             ; 48 ALUTs               ; Yes        ; |sha256|rc[3]                   ;
+; 7:1                ; 4 bits    ; 16 ALUTs      ; 8 ALUTs              ; 8 ALUTs                ; Yes        ; |sha256|t[7]                    ;
+; 256:1              ; 32 bits   ; 5440 ALUTs    ; 160 ALUTs            ; 5280 ALUTs             ; Yes        ; |sha256|mem_write_data[24]~reg0 ;
+; 8:1                ; 16 bits   ; 80 ALUTs      ; 32 ALUTs             ; 48 ALUTs               ; Yes        ; |sha256|mem_addr[15]~reg0       ;
+; 5:1                ; 3 bits    ; 9 ALUTs       ; 9 ALUTs              ; 0 ALUTs                ; No         ; |sha256|w_in[0]                 ;
 ; 6:1                ; 4 bits    ; 16 ALUTs      ; 16 ALUTs             ; 0 ALUTs                ; No         ; |sha256|w_in[6]                 ;
-; 7:1                ; 7 bits    ; 28 ALUTs      ; 28 ALUTs             ; 0 ALUTs                ; No         ; |sha256|w_in[21]                ;
-; 7:1                ; 8 bits    ; 32 ALUTs      ; 32 ALUTs             ; 0 ALUTs                ; No         ; |sha256|w_in[25]                ;
-; 7:1                ; 7 bits    ; 28 ALUTs      ; 28 ALUTs             ; 0 ALUTs                ; No         ; |sha256|w_in[9]                 ;
+; 7:1                ; 7 bits    ; 28 ALUTs      ; 28 ALUTs             ; 0 ALUTs                ; No         ; |sha256|w_in[16]                ;
+; 7:1                ; 8 bits    ; 32 ALUTs      ; 32 ALUTs             ; 0 ALUTs                ; No         ; |sha256|w_in[29]                ;
+; 7:1                ; 7 bits    ; 28 ALUTs      ; 28 ALUTs             ; 0 ALUTs                ; No         ; |sha256|w_in[8]                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 
 
@@ -328,32 +327,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriaii_ff            ; 1085                        ;
+; arriaii_ff            ; 1117                        ;
 ;     CLR               ; 4                           ;
-;     ENA               ; 670                         ;
-;     ENA SCLR          ; 310                         ;
-;     ENA SLD           ; 98                          ;
-;     plain             ; 3                           ;
+;     ENA               ; 55                          ;
+;     ENA SCLR          ; 104                         ;
+;     ENA SLD           ; 440                         ;
+;     plain             ; 514                         ;
 ; boundary_port         ; 182                         ;
-; stratixiv_lcell_comb  ; 1288                        ;
+; stratixiv_lcell_comb  ; 1903                        ;
 ;     arith             ; 483                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 127                         ;
-;         2 data inputs ; 322                         ;
-;         4 data inputs ; 32                          ;
-;     normal            ; 709                         ;
+;         2 data inputs ; 344                         ;
+;         3 data inputs ; 10                          ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 1290                        ;
 ;         0 data inputs ; 2                           ;
-;         2 data inputs ; 204                         ;
-;         3 data inputs ; 231                         ;
-;         4 data inputs ; 24                          ;
-;         5 data inputs ; 46                          ;
-;         6 data inputs ; 202                         ;
-;     shared            ; 96                          ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 93                          ;
+;         2 data inputs ; 27                          ;
+;         3 data inputs ; 959                         ;
+;         4 data inputs ; 12                          ;
+;         5 data inputs ; 28                          ;
+;         6 data inputs ; 262                         ;
+;     shared            ; 128                         ;
+;         3 data inputs ; 128                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 13.20                       ;
-; Average LUT depth     ; 5.07                        ;
+; Max LUT depth         ; 14.20                       ;
+; Average LUT depth     ; 5.68                        ;
 +-----------------------+-----------------------------+
 
 
@@ -362,7 +362,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:09     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -372,7 +372,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu May 25 12:02:46 2017
+    Info: Processing started: Thu May 25 15:09:34 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sha256 -c sha256
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -381,24 +381,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file sha256.
 Info (12021): Found 1 design units, including 1 entities, in source file tb_sha256.sv
     Info (12023): Found entity 1: tb_sha256 File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/tb_sha256.sv Line: 1
 Info (12127): Elaborating entity "sha256" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at sha256.sv(48): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 48
-Warning (10230): Verilog HDL assignment warning at sha256.sv(114): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 114
-Warning (10230): Verilog HDL assignment warning at sha256.sv(139): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 139
+Warning (10230): Verilog HDL assignment warning at sha256.sv(44): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 44
+Warning (10230): Verilog HDL assignment warning at sha256.sv(106): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 106
+Warning (10230): Verilog HDL assignment warning at sha256.sv(131): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 131
+Warning (10230): Verilog HDL assignment warning at sha256.sv(132): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 132
+Warning (10230): Verilog HDL assignment warning at sha256.sv(138): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 138
 Warning (10230): Verilog HDL assignment warning at sha256.sv(140): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 140
-Warning (10230): Verilog HDL assignment warning at sha256.sv(146): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 146
-Warning (10230): Verilog HDL assignment warning at sha256.sv(148): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 148
-Warning (10230): Verilog HDL assignment warning at sha256.sv(150): truncated value with size 32 to match size of target (8) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 150
-Warning (10230): Verilog HDL assignment warning at sha256.sv(40): truncated value with size 256 to match size of target (160) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 40
-Warning (10230): Verilog HDL assignment warning at sha256.sv(180): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 180
-Warning (10230): Verilog HDL assignment warning at sha256.sv(191): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 191
-Warning (10230): Verilog HDL assignment warning at sha256.sv(196): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 196
-Warning (10230): Verilog HDL assignment warning at sha256.sv(202): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 202
-Warning (10230): Verilog HDL assignment warning at sha256.sv(208): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 208
-Warning (10230): Verilog HDL assignment warning at sha256.sv(214): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 214
-Warning (10230): Verilog HDL assignment warning at sha256.sv(220): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 220
-Warning (10230): Verilog HDL assignment warning at sha256.sv(226): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 226
-Warning (10230): Verilog HDL assignment warning at sha256.sv(232): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 232
-Warning (10230): Verilog HDL assignment warning at sha256.sv(243): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 243
+Warning (10230): Verilog HDL assignment warning at sha256.sv(142): truncated value with size 32 to match size of target (8) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 142
+Warning (10230): Verilog HDL assignment warning at sha256.sv(172): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 172
+Warning (10230): Verilog HDL assignment warning at sha256.sv(183): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 183
+Warning (10230): Verilog HDL assignment warning at sha256.sv(188): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 188
+Warning (10230): Verilog HDL assignment warning at sha256.sv(194): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 194
+Warning (10230): Verilog HDL assignment warning at sha256.sv(200): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 200
+Warning (10230): Verilog HDL assignment warning at sha256.sv(206): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 206
+Warning (10230): Verilog HDL assignment warning at sha256.sv(212): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 212
+Warning (10230): Verilog HDL assignment warning at sha256.sv(218): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 218
+Warning (10230): Verilog HDL assignment warning at sha256.sv(224): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 224
+Warning (10230): Verilog HDL assignment warning at sha256.sv(235): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 235
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "done" is stuck at VCC File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 3
 Info (286030): Timing-Driven Synthesis is running
@@ -438,14 +437,14 @@ Warning (21074): Design contains 32 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "output_addr[29]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 2
     Warning (15610): No output dependent on input pin "output_addr[30]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 2
     Warning (15610): No output dependent on input pin "output_addr[31]" File: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv Line: 2
-Info (21057): Implemented 2177 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2340 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 131 input pins
     Info (21059): Implemented 51 output pins
-    Info (21061): Implemented 1995 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
-    Info: Peak virtual memory: 736 megabytes
-    Info: Processing ended: Thu May 25 12:03:30 2017
-    Info: Elapsed time: 00:00:44
-    Info: Total CPU time (on all processors): 00:01:01
+    Info (21061): Implemented 2158 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 53 warnings
+    Info: Peak virtual memory: 740 megabytes
+    Info: Processing ended: Thu May 25 15:10:31 2017
+    Info: Elapsed time: 00:00:57
+    Info: Total CPU time (on all processors): 00:01:30
 
 

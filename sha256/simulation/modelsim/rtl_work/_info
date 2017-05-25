@@ -10,35 +10,35 @@ cModel Technology
 Z0 dC:/Users/Michael/Documents/ECE_111/Assignment5/sha256/simulation/modelsim
 vsha256
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-!s110 1495739424
+Z2 !s110 1495750002
 !i10b 1
-!s100 <`c2;`oa_Pgal]D6onFeH2
-IizP9L?4H[nmOiGNJZdc971
-Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s100 E9E7MFKM?O2BWEG]NHA@z0
+I5Aa1D4]L1[zf<3Bo_[JCh2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 !s105 sha256_sv_unit
 S1
 R0
-w1495739397
+w1495749993
 8C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv
 FC:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv
 L0 1
-Z3 OV;L;10.5b;63
+Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1495739424.000000
+Z5 !s108 1495750002.000000
 !s107 C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv|
 !s90 -reportprogress|300|-work|work|C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv|
 !i113 1
-Z5 o-work work
-Z6 tCvgOpt 0
+Z6 o-work work
+Z7 tCvgOpt 0
 vtb_sha256
 R1
-!s110 1495739425
+R2
 !i10b 1
 !s100 ^Ib^A7@F:<[]fb35ImVcn3
 I4lNh_o6e1i8NFA[M]lA;R3
-R2
+R3
 !s105 tb_sha256_sv_unit
 S1
 R0
@@ -46,13 +46,13 @@ w1495738592
 8C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/tb_sha256.sv
 FC:/Users/Michael/Documents/ECE_111/Assignment5/sha256/tb_sha256.sv
 L0 1
-R3
+R4
 r1
 !s85 0
 31
-R4
+R5
 !s107 C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/tb_sha256.sv|
 !s90 -reportprogress|300|-work|work|C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/tb_sha256.sv|
 !i113 1
-R5
 R6
+R7

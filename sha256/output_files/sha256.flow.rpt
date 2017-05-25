@@ -1,5 +1,5 @@
 Flow report for sha256
-Thu May 25 12:05:49 2017
+Thu May 25 15:14:13 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Flow Status                       ; Successful - Thu May 25 12:05:11 2017       ;
+; Flow Status                       ; Successful - Thu May 25 15:13:27 2017       ;
 ; Quartus Prime Version             ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                     ; sha256                                      ;
 ; Top-level Entity Name             ; sha256                                      ;
 ; Family                            ; Arria II GX                                 ;
 ; Device                            ; EP2AGX45DF29I5                              ;
 ; Timing Models                     ; Final                                       ;
-; Logic utilization                 ; 5 %                                         ;
-;     Combinational ALUTs           ; 1,288 / 36,100 ( 4 % )                      ;
+; Logic utilization                 ; 6 %                                         ;
+;     Combinational ALUTs           ; 1,902 / 36,100 ( 5 % )                      ;
 ;     Memory ALUTs                  ; 0 / 18,050 ( 0 % )                          ;
-;     Dedicated logic registers     ; 1,085 / 36,100 ( 3 % )                      ;
-; Total registers                   ; 1085                                        ;
+;     Dedicated logic registers     ; 1,117 / 36,100 ( 3 % )                      ;
+; Total registers                   ; 1117                                        ;
 ; Total pins                        ; 182 / 404 ( 45 % )                          ;
 ; Total virtual pins                ; 0                                           ;
 ; Total block memory bits           ; 0 / 2,939,904 ( 0 % )                       ;
@@ -71,7 +71,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/25/2017 12:02:47 ;
+; Start date & time ; 05/25/2017 15:09:35 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; sha256              ;
 +-------------------+---------------------+
@@ -82,7 +82,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 739018199105.149573896713240           ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 739018199105.149575017515304           ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -100,10 +100,10 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:41     ; 1.0                     ; 736 MB              ; 00:01:00                           ;
-; Fitter                    ; 00:01:23     ; 1.0                     ; 1714 MB             ; 00:01:47                           ;
-; TimeQuest Timing Analyzer ; 00:00:21     ; 1.0                     ; 813 MB              ; 00:00:12                           ;
-; Total                     ; 00:02:25     ; --                      ; --                  ; 00:02:59                           ;
+; Analysis & Synthesis      ; 00:00:55     ; 1.0                     ; 740 MB              ; 00:01:29                           ;
+; Fitter                    ; 00:01:34     ; 1.0                     ; 1723 MB             ; 00:02:26                           ;
+; TimeQuest Timing Analyzer ; 00:00:28     ; 1.0                     ; 815 MB              ; 00:00:15                           ;
+; Total                     ; 00:02:57     ; --                      ; --                  ; 00:04:10                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
