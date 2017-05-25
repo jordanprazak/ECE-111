@@ -1,0 +1,146 @@
+# Reading C:/intelFPGA_lite/16.1/modelsim_ase/tcl/vsim/pref.tcl
+# do sha256_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/16.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/Michael/Documents/ECE_111/Assignment5/sha256 {C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:09:11 on May 25,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Michael/Documents/ECE_111/Assignment5/sha256" C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv 
+# -- Compiling module sha256
+# ** Error: C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv(34): (vlog-2730) Undefined variable: 's1'.
+# End time: 12:09:11 on May 25,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA_lite/16.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./sha256_run_msim_rtl_verilog.do line 8
+# C:/intelFPGA_lite/16.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -sv -work work +incdir+C:/Users/Michael/Documents/ECE_111/Assignment5/sha256 {C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv}"
+vlog -reportprogress 300 -work work C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:10:24 on May 25,2017
+# vlog -reportprogress 300 -work work C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/sha256.sv 
+# -- Compiling module sha256
+# 
+# Top level modules:
+# 	sha256
+# End time: 12:10:24 on May 25,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/tb_sha256.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:10:24 on May 25,2017
+# vlog -reportprogress 300 -work work C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/tb_sha256.sv 
+# -- Compiling module tb_sha256
+# 
+# Top level modules:
+# 	tb_sha256
+# End time: 12:10:25 on May 25,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim work.tb_sha256
+# vsim work.tb_sha256 
+# Start time: 12:10:33 on May 25,2017
+# Loading sv_std.std
+# Loading work.tb_sha256
+# Loading work.sha256
+restart
+run -all
+# -----------
+# 
+# Messagetext
+# 
+# -----------
+# 
+# 01234567
+# 
+# 02468ace
+# 
+# 048d159c
+# 
+# 091a2b38
+# 
+# 12345670
+# 
+# 2468ace0
+# 
+# 48d159c0
+# 
+# 91a2b380
+# 
+# 23456701
+# 
+# 468ace02
+# 
+# 8d159c04
+# 
+# 1a2b3809
+# 
+# 34567012
+# 
+# 68ace024
+# 
+# d159c048
+# 
+# a2b38091
+# 
+# 45670123
+# 
+# 8ace0246
+# 
+# 159c048d
+# 
+# 2b38091a
+# 
+# 56701234
+# 
+# ace02468
+# 
+# 59c048d1
+# 
+# b38091a2
+# 
+# 67012345
+# 
+# ce02468a
+# 
+# 9c048d15
+# 
+# 38091a2b
+# 
+# 70123456
+# 
+# e02468ac
+# 
+# -----------------------
+# 
+# correct hash result is:
+# 
+# -----------------------
+# 
+# b1703b4c04925cc356809b0c4bb9263aa8e8a4faaba12117534b5b78c166d566
+# 
+# -----------------------
+# 
+# Your result is:        
+# 
+# -----------------------
+# 
+# 6a09e667bb67ae853c6ef372a54ff53aaf99a24e810c6911ab31aa24a5868c87
+# 
+# ***************************
+# 
+# Error! The hash result is wrong!
+# 
+# ***************************
+# 
+# ** Note: $stop    : C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/tb_sha256.sv(247)
+#    Time: 4250 ps  Iteration: 2  Instance: /tb_sha256
+# Break in Module tb_sha256 at C:/Users/Michael/Documents/ECE_111/Assignment5/sha256/tb_sha256.sv line 247
+# End time: 13:31:05 on May 25,2017, Elapsed time: 1:20:32
+# Errors: 0, Warnings: 0
