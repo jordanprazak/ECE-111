@@ -1,0 +1,610 @@
+Analysis & Synthesis report for super_hash_processor
+Thu Jun 01 17:07:16 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |super_hash_processor|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Physical Synthesis Netlist Optimizations
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |super_hash_processor
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++-----------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status       ; Successful - Thu Jun 01 17:07:16 2017       ;
+; Quartus Prime Version             ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                     ; super_hash_processor                        ;
+; Top-level Entity Name             ; super_hash_processor                        ;
+; Family                            ; Arria II GX                                 ;
+; Logic utilization                 ; N/A                                         ;
+;     Combinational ALUTs           ; 2,246                                       ;
+;     Memory ALUTs                  ; 0                                           ;
+;     Dedicated logic registers     ; 1,118                                       ;
+; Total registers                   ; 1118                                        ;
+; Total pins                        ; 184                                         ;
+; Total virtual pins                ; 0                                           ;
+; Total block memory bits           ; 0                                           ;
+; DSP block 18-bit elements         ; 0                                           ;
+; Total GXB Receiver Channel PCS    ; 0                                           ;
+; Total GXB Receiver Channel PMA    ; 0                                           ;
+; Total GXB Transmitter Channel PCS ; 0                                           ;
+; Total GXB Transmitter Channel PMA ; 0                                           ;
+; Total PLLs                        ; 0                                           ;
+; Total DLLs                        ; 0                                           ;
++-----------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                 ;
++---------------------------------------------------------------------------------+----------------------+----------------------+
+; Option                                                                          ; Setting              ; Default Value        ;
++---------------------------------------------------------------------------------+----------------------+----------------------+
+; Device                                                                          ; EP2AGX45DF29I5       ;                      ;
+; Top-level entity name                                                           ; super_hash_processor ; super_hash_processor ;
+; Family name                                                                     ; Arria II GX          ; Cyclone V            ;
+; Use smart compilation                                                           ; Off                  ; Off                  ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                   ; On                   ;
+; Enable compact report table                                                     ; Off                  ; Off                  ;
+; Restructure Multiplexers                                                        ; Auto                 ; Auto                 ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                  ; Off                  ;
+; Create Debugging Nodes for IP Cores                                             ; Off                  ; Off                  ;
+; Preserve fewer node names                                                       ; On                   ; On                   ;
+; OpenCore Plus hardware evaluation                                               ; Enable               ; Enable               ;
+; Verilog Version                                                                 ; Verilog_2001         ; Verilog_2001         ;
+; VHDL Version                                                                    ; VHDL_1993            ; VHDL_1993            ;
+; State Machine Processing                                                        ; Auto                 ; Auto                 ;
+; Safe State Machine                                                              ; Off                  ; Off                  ;
+; Extract Verilog State Machines                                                  ; On                   ; On                   ;
+; Extract VHDL State Machines                                                     ; On                   ; On                   ;
+; Ignore Verilog initial constructs                                               ; Off                  ; Off                  ;
+; Iteration limit for constant Verilog loops                                      ; 5000                 ; 5000                 ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                  ; 250                  ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                   ; On                   ;
+; Infer RAMs from Raw Logic                                                       ; On                   ; On                   ;
+; Parallel Synthesis                                                              ; On                   ; On                   ;
+; DSP Block Balancing                                                             ; Auto                 ; Auto                 ;
+; NOT Gate Push-Back                                                              ; On                   ; On                   ;
+; Power-Up Don't Care                                                             ; On                   ; On                   ;
+; Remove Redundant Logic Cells                                                    ; Off                  ; Off                  ;
+; Remove Duplicate Registers                                                      ; On                   ; On                   ;
+; Ignore CARRY Buffers                                                            ; Off                  ; Off                  ;
+; Ignore CASCADE Buffers                                                          ; Off                  ; Off                  ;
+; Ignore GLOBAL Buffers                                                           ; Off                  ; Off                  ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                  ; Off                  ;
+; Ignore LCELL Buffers                                                            ; Off                  ; Off                  ;
+; Ignore SOFT Buffers                                                             ; On                   ; On                   ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                  ; Off                  ;
+; Optimization Technique                                                          ; Balanced             ; Balanced             ;
+; Carry Chain Length                                                              ; 70                   ; 70                   ;
+; Auto Carry Chains                                                               ; On                   ; On                   ;
+; Auto Open-Drain Pins                                                            ; On                   ; On                   ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                  ; Off                  ;
+; Auto ROM Replacement                                                            ; On                   ; On                   ;
+; Auto RAM Replacement                                                            ; On                   ; On                   ;
+; Auto DSP Block Replacement                                                      ; On                   ; On                   ;
+; Auto Shift Register Replacement                                                 ; Auto                 ; Auto                 ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                 ; Auto                 ;
+; Auto Clock Enable Replacement                                                   ; On                   ; On                   ;
+; Strict RAM Replacement                                                          ; Off                  ; Off                  ;
+; Allow Synchronous Control Signals                                               ; On                   ; On                   ;
+; Force Use of Synchronous Clear Signals                                          ; Off                  ; Off                  ;
+; Auto RAM Block Balancing                                                        ; On                   ; On                   ;
+; Auto RAM to Logic Cell Conversion                                               ; Off                  ; Off                  ;
+; Auto Resource Sharing                                                           ; Off                  ; Off                  ;
+; Allow Any RAM Size For Recognition                                              ; Off                  ; Off                  ;
+; Allow Any ROM Size For Recognition                                              ; Off                  ; Off                  ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                  ; Off                  ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                   ; On                   ;
+; Ignore translate_off and synthesis_off directives                               ; Off                  ; Off                  ;
+; Timing-Driven Synthesis                                                         ; On                   ; On                   ;
+; Report Parameter Settings                                                       ; On                   ; On                   ;
+; Report Source Assignments                                                       ; On                   ; On                   ;
+; Report Connectivity Checks                                                      ; On                   ; On                   ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                  ; Off                  ;
+; Synchronization Register Chain Length                                           ; 3                    ; 3                    ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation   ; Normal compilation   ;
+; HDL message level                                                               ; Level2               ; Level2               ;
+; Suppress Register Optimization Related Messages                                 ; Off                  ; Off                  ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                 ; 5000                 ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                 ; 5000                 ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                  ; 100                  ;
+; Clock MUX Protection                                                            ; On                   ; On                   ;
+; Auto Gated Clock Conversion                                                     ; Off                  ; Off                  ;
+; Block Design Naming                                                             ; Auto                 ; Auto                 ;
+; SDC constraint protection                                                       ; Off                  ; Off                  ;
+; Synthesis Effort                                                                ; Auto                 ; Auto                 ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                   ; On                   ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                  ; Off                  ;
+; Analysis & Synthesis Message Level                                              ; Medium               ; Medium               ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                 ; Auto                 ;
+; Resource Aware Inference For Block RAM                                          ; On                   ; On                   ;
++---------------------------------------------------------------------------------+----------------------+----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                           ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
+; super_hash_processor.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++-----------------------------------------------+-----------+
+; Resource                                      ; Usage     ;
++-----------------------------------------------+-----------+
+; Estimated ALUTs Used                          ; 2246      ;
+;     -- Combinational ALUTs                    ; 2246      ;
+;     -- Memory ALUTs                           ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+; Dedicated logic registers                     ; 1118      ;
+;                                               ;           ;
+; Estimated ALUTs Unavailable                   ; 358       ;
+;     -- Due to unpartnered combinational logic ; 358       ;
+;     -- Due to Memory ALUTs                    ; 0         ;
+;                                               ;           ;
+; Total combinational functions                 ; 2246      ;
+; Combinational ALUT usage by number of inputs  ;           ;
+;     -- 7 input functions                      ; 37        ;
+;     -- 6 input functions                      ; 641       ;
+;     -- 5 input functions                      ; 283       ;
+;     -- 4 input functions                      ; 87        ;
+;     -- <=3 input functions                    ; 1198      ;
+;                                               ;           ;
+; Combinational ALUTs by mode                   ;           ;
+;     -- normal mode                            ; 1407      ;
+;     -- extended LUT mode                      ; 37        ;
+;     -- arithmetic mode                        ; 642       ;
+;     -- shared arithmetic mode                 ; 160       ;
+;                                               ;           ;
+; Estimated ALUT/register pairs used            ; 3027      ;
+;                                               ;           ;
+; Total registers                               ; 1118      ;
+;     -- Dedicated logic registers              ; 1118      ;
+;     -- I/O registers                          ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+;                                               ;           ;
+;                                               ;           ;
+; I/O pins                                      ; 184       ;
+;                                               ;           ;
+; DSP block 18-bit elements                     ; 0         ;
+;                                               ;           ;
+; Maximum fan-out node                          ; clk~input ;
+; Maximum fan-out                               ; 1119      ;
+; Total fan-out                                 ; 13778     ;
+; Average fan-out                               ; 3.69      ;
++-----------------------------------------------+-----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                               ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+-----------------------+----------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name   ; Entity Name          ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+-----------------------+----------------------+--------------+
+; |super_hash_processor      ; 2246 (2246)         ; 1118 (1118)               ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 184  ; 0            ; |super_hash_processor ; super_hash_processor ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+-----------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |super_hash_processor|state                      ;
++-------------+-------------+------------+------------+------------+
+; Name        ; state.WRITE ; state.READ ; state.COMP ; state.IDLE ;
++-------------+-------------+------------+------------+------------+
+; state.IDLE  ; 0           ; 0          ; 0          ; 0          ;
+; state.COMP  ; 0           ; 0          ; 1          ; 1          ;
+; state.READ  ; 0           ; 1          ; 0          ; 1          ;
+; state.WRITE ; 1           ; 0          ; 0          ; 1          ;
++-------------+-------------+------------+------------+------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; state~8                               ; Lost fanout        ;
+; state~9                               ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1118  ;
+; Number of registers using Synchronous Clear  ; 168   ;
+; Number of registers using Synchronous Load   ; 265   ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1113  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------+
+; Physical Synthesis Netlist Optimizations                      ;
++------------------------------+----------+---------------------+
+; Node                         ; Action   ; Reason              ;
++------------------------------+----------+---------------------+
+; Add0~2                       ; Modified ; Timing optimization ;
+; Add1~1                       ; Modified ; Timing optimization ;
+; Add1~2                       ; Modified ; Timing optimization ;
+; Add2~2                       ; Modified ; Timing optimization ;
+; Add12~2                      ; Modified ; Timing optimization ;
+; Add14~2                      ; Modified ; Timing optimization ;
+; Add16~1                      ; Modified ; Timing optimization ;
+; Add23~0                      ; Modified ; Timing optimization ;
+; Add26~5                      ; Modified ; Timing optimization ;
+; Add30~2                      ; Modified ; Timing optimization ;
+; Add31~1                      ; Modified ; Timing optimization ;
+; Add32~1                      ; Modified ; Timing optimization ;
+; Add33~1                      ; Modified ; Timing optimization ;
+; Add34~1                      ; Modified ; Timing optimization ;
+; Add37~1                      ; Modified ; Timing optimization ;
+; Add38~1                      ; Modified ; Timing optimization ;
+; Add39~2                      ; Modified ; Timing optimization ;
+; Add41~2                      ; Modified ; Timing optimization ;
+; Equal0~5                     ; Modified ; Timing optimization ;
+; Equal0~12                    ; Deleted  ; Timing optimization ;
+; Equal0~14                    ; Deleted  ; Timing optimization ;
+; Equal0~15                    ; Deleted  ; Timing optimization ;
+; Equal0~16                    ; Deleted  ; Timing optimization ;
+; Equal0~17                    ; Modified ; Timing optimization ;
+; Equal0~17_RESYN0_BDD1        ; Created  ; Timing optimization ;
+; Equal0~17_RESYN2_BDD3        ; Created  ; Timing optimization ;
+; LessThan0~8                  ; Modified ; Timing optimization ;
+; LessThan0~19                 ; Deleted  ; Timing optimization ;
+; LessThan0~20                 ; Modified ; Timing optimization ;
+; LessThan0~20_RESYN56_BDD57   ; Created  ; Timing optimization ;
+; LessThan9~3                  ; Modified ; Timing optimization ;
+; LessThan9~11                 ; Modified ; Timing optimization ;
+; Selector76~0                 ; Modified ; Timing optimization ;
+; Selector77~2                 ; Modified ; Timing optimization ;
+; Selector77~4                 ; Modified ; Timing optimization ;
+; Selector121~0                ; Modified ; Timing optimization ;
+; Selector153~0                ; Modified ; Timing optimization ;
+; Selector185~0                ; Modified ; Timing optimization ;
+; Selector473~0                ; Modified ; Timing optimization ;
+; Selector505~0                ; Modified ; Timing optimization ;
+; Selector537~0                ; Modified ; Timing optimization ;
+; Selector601~0                ; Modified ; Timing optimization ;
+; Selector633~0                ; Modified ; Timing optimization ;
+; ShiftLeft0~2                 ; Modified ; Timing optimization ;
+; ShiftLeft0~7                 ; Modified ; Timing optimization ;
+; ShiftLeft0~8                 ; Deleted  ; Timing optimization ;
+; ShiftLeft0~10                ; Modified ; Timing optimization ;
+; ShiftRight0~8                ; Modified ; Timing optimization ;
+; ShiftRight0~8_RESYN6_BDD7    ; Created  ; Timing optimization ;
+; ShiftRight0~8_RESYN8_BDD9    ; Created  ; Timing optimization ;
+; ShiftRight0~8_RESYN10_BDD11  ; Created  ; Timing optimization ;
+; ShiftRight0~16               ; Modified ; Timing optimization ;
+; ShiftRight0~16_RESYN12_BDD13 ; Created  ; Timing optimization ;
+; ShiftRight0~16_RESYN14_BDD15 ; Created  ; Timing optimization ;
+; ShiftRight0~16_RESYN16_BDD17 ; Created  ; Timing optimization ;
+; ShiftRight0~25               ; Modified ; Timing optimization ;
+; ShiftRight0~25_RESYN18_BDD19 ; Created  ; Timing optimization ;
+; ShiftRight0~25_RESYN20_BDD21 ; Created  ; Timing optimization ;
+; ShiftRight0~25_RESYN22_BDD23 ; Created  ; Timing optimization ;
+; ShiftRight0~73               ; Deleted  ; Timing optimization ;
+; ShiftRight0~74               ; Deleted  ; Timing optimization ;
+; ShiftRight0~75               ; Deleted  ; Timing optimization ;
+; ShiftRight0~76               ; Deleted  ; Timing optimization ;
+; ShiftRight0~77               ; Deleted  ; Timing optimization ;
+; ShiftRight0~78               ; Deleted  ; Timing optimization ;
+; ShiftRight0~93               ; Deleted  ; Timing optimization ;
+; ShiftRight0~94               ; Deleted  ; Timing optimization ;
+; ShiftRight0~95               ; Deleted  ; Timing optimization ;
+; temp2~0                      ; Deleted  ; Timing optimization ;
+; temp2~1                      ; Modified ; Timing optimization ;
+; temp2~1_RESYN24_BDD25        ; Created  ; Timing optimization ;
+; temp2~1_RESYN26_BDD27        ; Created  ; Timing optimization ;
+; w_in[0]~4                    ; Modified ; Timing optimization ;
+; w_in[0]~309                  ; Deleted  ; Timing optimization ;
+; w_in[0]~310                  ; Deleted  ; Timing optimization ;
+; w_in[0]~311                  ; Modified ; Timing optimization ;
+; w_in[0]~311_RESYN28_BDD29    ; Created  ; Timing optimization ;
+; w_in[0]~311_RESYN30_BDD31    ; Created  ; Timing optimization ;
+; w_in[2]~348                  ; Modified ; Timing optimization ;
+; w_in[16]~338                 ; Modified ; Timing optimization ;
+; w_in[16]~338_RESYN34_BDD35   ; Created  ; Timing optimization ;
+; w_in[17]~334                 ; Modified ; Timing optimization ;
+; w_in[17]~334_RESYN32_BDD33   ; Created  ; Timing optimization ;
+; w_in~142                     ; Deleted  ; Timing optimization ;
+; w_in~150                     ; Deleted  ; Timing optimization ;
++------------------------------+----------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 4:1                ; 16 bits   ; 32 ALUTs      ; 0 ALUTs              ; 32 ALUTs               ; Yes        ; |super_hash_processor|wc[8]                   ;
+; 5:1                ; 127 bits  ; 381 ALUTs     ; 127 ALUTs            ; 254 ALUTs              ; Yes        ; |super_hash_processor|h1[4]                   ;
+; 5:1                ; 129 bits  ; 387 ALUTs     ; 0 ALUTs              ; 387 ALUTs              ; Yes        ; |super_hash_processor|h7[3]                   ;
+; 5:1                ; 15 bits   ; 45 ALUTs      ; 30 ALUTs             ; 15 ALUTs               ; Yes        ; |super_hash_processor|d[9]                    ;
+; 5:1                ; 17 bits   ; 51 ALUTs      ; 34 ALUTs             ; 17 ALUTs               ; Yes        ; |super_hash_processor|d[26]                   ;
+; 6:1                ; 49 bits   ; 196 ALUTs     ; 0 ALUTs              ; 196 ALUTs              ; Yes        ; |super_hash_processor|g[18]                   ;
+; 6:1                ; 47 bits   ; 188 ALUTs     ; 94 ALUTs             ; 94 ALUTs               ; Yes        ; |super_hash_processor|f[28]                   ;
+; 6:1                ; 39 bits   ; 156 ALUTs     ; 78 ALUTs             ; 78 ALUTs               ; Yes        ; |super_hash_processor|a[0]                    ;
+; 6:1                ; 25 bits   ; 100 ALUTs     ; 50 ALUTs             ; 50 ALUTs               ; Yes        ; |super_hash_processor|a[1]                    ;
+; 6:1                ; 17 bits   ; 68 ALUTs      ; 34 ALUTs             ; 34 ALUTs               ; Yes        ; |super_hash_processor|c[16]                   ;
+; 6:1                ; 15 bits   ; 60 ALUTs      ; 30 ALUTs             ; 30 ALUTs               ; Yes        ; |super_hash_processor|c[26]                   ;
+; 7:1                ; 7 bits    ; 28 ALUTs      ; 14 ALUTs             ; 14 ALUTs               ; Yes        ; |super_hash_processor|e[16]                   ;
+; 7:1                ; 25 bits   ; 100 ALUTs     ; 50 ALUTs             ; 50 ALUTs               ; Yes        ; |super_hash_processor|e[24]                   ;
+; 7:1                ; 16 bits   ; 64 ALUTs      ; 32 ALUTs             ; 32 ALUTs               ; Yes        ; |super_hash_processor|rc[15]                  ;
+; 258:1              ; 32 bits   ; 5504 ALUTs    ; 160 ALUTs            ; 5344 ALUTs             ; Yes        ; |super_hash_processor|mem_write_data[29]~reg0 ;
+; 263:1              ; 8 bits    ; 1400 ALUTs    ; 1368 ALUTs           ; 32 ALUTs               ; Yes        ; |super_hash_processor|t[1]                    ;
+; 264:1              ; 15 bits   ; 2640 ALUTs    ; 30 ALUTs             ; 2610 ALUTs             ; Yes        ; |super_hash_processor|mem_addr[9]~reg0        ;
+; 4:1                ; 25 bits   ; 50 ALUTs      ; 50 ALUTs             ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftLeft0              ;
+; 4:1                ; 25 bits   ; 50 ALUTs      ; 50 ALUTs             ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftRight0             ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftLeft0              ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftLeft0              ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftLeft0              ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftRight0             ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftRight0             ;
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftRight0             ;
+; 3:1                ; 16 bits   ; 32 ALUTs      ; 32 ALUTs             ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftRight0             ;
+; 5:1                ; 12 bits   ; 36 ALUTs      ; 36 ALUTs             ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftLeft0              ;
+; 6:1                ; 12 bits   ; 48 ALUTs      ; 48 ALUTs             ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftRight0             ;
+; 5:1                ; 32 bits   ; 96 ALUTs      ; 64 ALUTs             ; 32 ALUTs               ; No         ; |super_hash_processor|f                       ;
+; 8:1                ; 4 bits    ; 20 ALUTs      ; 20 ALUTs             ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftLeft0              ;
+; 9:1                ; 4 bits    ; 24 ALUTs      ; 24 ALUTs             ; 0 ALUTs                ; No         ; |super_hash_processor|ShiftRight0             ;
+; 38:1               ; 3 bits    ; 75 ALUTs      ; 42 ALUTs             ; 33 ALUTs               ; No         ; |super_hash_processor|w_in[0]                 ;
+; 39:1               ; 4 bits    ; 104 ALUTs     ; 60 ALUTs             ; 44 ALUTs               ; No         ; |super_hash_processor|w_in[4]                 ;
+; 40:1               ; 7 bits    ; 182 ALUTs     ; 105 ALUTs            ; 77 ALUTs               ; No         ; |super_hash_processor|w_in[18]                ;
+; 40:1               ; 8 bits    ; 208 ALUTs     ; 120 ALUTs            ; 88 ALUTs               ; No         ; |super_hash_processor|w_in[25]                ;
+; 40:1               ; 7 bits    ; 182 ALUTs     ; 105 ALUTs            ; 77 ALUTs               ; No         ; |super_hash_processor|w_in[8]                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |super_hash_processor                             ;
++----------------+----------------------------------------------------------------------------------+--------------+
+; Parameter Name ; Value                                                                            ; Type         ;
++----------------+----------------------------------------------------------------------------------+--------------+
+; md5_k          ; (-680876936,-389564586,606105819,-1044525330,-176418897,1200080426,-1473231341,- ; Array/Record ;
+; md5_k          ; 45705983,1770035416,-1958414417,-42063,-1990404162,1804603682,-40341101,-1502002 ;              ;
+; md5_k          ; 290,1236535329,-165796510,-1069501632,643717713,-373897302,-701558691,38016083,- ;              ;
+; md5_k          ; 660478335,-405537848,568446438,-1019803690,-187363961,1163531501,-1444681467,-51 ;              ;
+; md5_k          ; 403784,1735328473,-1926607734,-378558,-2022574463,1839030562,-35309556,-15309920 ;              ;
+; md5_k          ; 60,1272893353,-155497632,-1094730640,681279174,-358537222,-722521979,76029189,-6 ;              ;
+; md5_k          ; 40364487,-421815835,530742520,-995338651,-198630844,1126891415,-1416354905,-5743 ;              ;
+; md5_k          ; 4055,1700485571,-1894986606,-1051523,-2054922799,1873313359,-30611744,-156019838 ;              ;
+;                ; 0,1309151649,-145523070,-1120210379,718787259,-343485551)                        ;              ;
+; md5_S          ; (00000111,00001100,00010001,00010110,00000111,00001100,00010001,00010110,0000011 ; Array/Record ;
+; md5_S          ; 1,00001100,00010001,00010110,00000111,00001100,00010001,00010110,00000101,000010 ;              ;
+; md5_S          ; 01,00001110,00010100,00000101,00001001,00001110,00010100,00000101,00001001,00001 ;              ;
+; md5_S          ; 110,00010100,00000101,00001001,00001110,00010100,00000100,00001011,00010000,0001 ;              ;
+; md5_S          ; 0111,00000100,00001011,00010000,00010111,00000100,00001011,00010000,00010111,000 ;              ;
+; md5_S          ; 00100,00001011,00010000,00010111,00000110,00001010,00001111,00010101,00000110,00 ;              ;
+; md5_S          ; 001010,00001111,00010101,00000110,00001010,00001111,00010101,00000110,00001010,0 ;              ;
+;                ; 0001111,00010101)                                                                ;              ;
+; sha256_k       ; (1116352408,1899447441,-1245643825,-373957723,961987163,1508970993,-1841331548,- ; Array/Record ;
+; sha256_k       ; 1424204075,-670586216,310598401,607225278,1426881987,1925078388,-2132889090,-168 ;              ;
+; sha256_k       ; 0079193,-1046744716,-459576895,-272742522,264347078,604807628,770255983,12491501 ;              ;
+; sha256_k       ; 22,1555081692,1996064986,-1740746414,-1473132947,-1341970488,-1084653625,-958395 ;              ;
+; sha256_k       ; 405,-710438585,113926993,338241895,666307205,773529912,1294757372,1396182291,169 ;              ;
+; sha256_k       ; 5183700,1986661051,-2117940946,-1838011259,-1564481375,-1474664885,-1035236496,- ;              ;
+; sha256_k       ; 949202525,-778901479,-694614492,-200395387,275423344,430227734,506948616,6590605 ;              ;
+; sha256_k       ; 56,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,-2 ;              ;
+;                ; 067236844,-1933114872,-1866530822,-1538233109,-1090935817,-965641998)            ;              ;
++----------------+----------------------------------------------------------------------------------+--------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriaii_ff            ; 1118                        ;
+;     CLR               ; 4                           ;
+;     ENA               ; 729                         ;
+;     ENA SCLR          ; 119                         ;
+;     ENA SCLR SLD      ; 49                          ;
+;     ENA SLD           ; 216                         ;
+;     plain             ; 1                           ;
+; boundary_port         ; 184                         ;
+; stratixiv_lcell_comb  ; 2246                        ;
+;     arith             ; 642                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 111                         ;
+;         2 data inputs ; 414                         ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 17                          ;
+;         5 data inputs ; 88                          ;
+;     extend            ; 37                          ;
+;         7 data inputs ; 37                          ;
+;     normal            ; 1407                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 87                          ;
+;         3 data inputs ; 413                         ;
+;         4 data inputs ; 69                          ;
+;         5 data inputs ; 195                         ;
+;         6 data inputs ; 641                         ;
+;     shared            ; 160                         ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 158                         ;
+;         4 data inputs ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 22.00                       ;
+; Average LUT depth     ; 11.48                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:42     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Thu Jun 01 17:06:03 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off super_hash_processor -c super_hash_processor
+Info (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tb_super_hash_processor.sv
+    Info (12023): Found entity 1: tb_super_hash_processor File: C:/Users/Michael/Documents/ECE_111/Assignment6/tb_super_hash_processor.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file super_hash_processor.sv
+    Info (12023): Found entity 1: super_hash_processor File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 1
+Info (12127): Elaborating entity "super_hash_processor" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(133): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 133
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(211): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 211
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(274): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 274
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(275): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 275
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(281): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 281
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(283): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 283
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(291): truncated value with size 32 to match size of target (8) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 291
+Warning (10764): Verilog HDL warning at super_hash_processor.sv(108): converting signed shift amount to unsigned File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 108
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(325): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 325
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(326): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 326
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(336): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 336
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(341): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 341
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(347): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 347
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(353): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 353
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(365): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 365
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(378): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 378
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(385): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 385
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(391): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 391
+Warning (10230): Verilog HDL assignment warning at super_hash_processor.sv(402): truncated value with size 32 to match size of target (16) File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 402
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (128000): Starting physical synthesis optimizations for speed
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'super_hash_processor.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332144): No user constrained base clocks found in the design
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (332128): Timing requirements not specified -- optimizing circuit to achieve the following default global requirements
+    Info (332127): Assuming a default timing requirement
+Info (332111): Found 1 clocks
+    Info (332111):   Period   Clock Name
+    Info (332111): ======== ============
+    Info (332111):    1.000          clk
+Info (128002): Starting physical synthesis algorithm register retiming
+Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 249 ps
+Info (128002): Starting physical synthesis algorithm register retiming
+Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:17
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 32 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "message_addr[16]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[17]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[18]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[19]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[20]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[21]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[22]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[23]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[24]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[25]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[26]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[27]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[28]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[29]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[30]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "message_addr[31]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[16]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[17]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[18]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[19]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[20]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[21]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[22]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[23]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[24]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[25]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[26]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[27]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[28]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[29]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[30]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[31]" File: C:/Users/Michael/Documents/ECE_111/Assignment6/super_hash_processor.sv Line: 3
+Info (21057): Implemented 3203 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 133 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 3019 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
+    Info: Peak virtual memory: 871 megabytes
+    Info: Processing ended: Thu Jun 01 17:07:16 2017
+    Info: Elapsed time: 00:01:13
+    Info: Total CPU time (on all processors): 00:01:54
+
+
