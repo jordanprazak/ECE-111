@@ -24,7 +24,7 @@ parameter int md5_k[0:63] = '{
     32'h6fa87e4f, 32'hfe2ce6e0, 32'ha3014314, 32'h4e0811a1,
     32'hf7537e82, 32'hbd3af235, 32'h2ad7d2bb, 32'heb86d391
 };
-
+/*
 // MD5 S constants
 parameter byte md5_S[0:63] = '{
     8'd7, 8'd12, 8'd17, 8'd22, 8'd7, 8'd12, 8'd17, 8'd22, 8'd7, 8'd12, 8'd17, 8'd22, 8'd7, 8'd12, 8'd17, 8'd22,
@@ -32,7 +32,7 @@ parameter byte md5_S[0:63] = '{
     8'd4, 8'd11, 8'd16, 8'd23, 8'd4, 8'd11, 8'd16, 8'd23, 8'd4, 8'd11, 8'd16, 8'd23, 8'd4, 8'd11, 8'd16, 8'd23,
     8'd6, 8'd10, 8'd15, 8'd21, 8'd6, 8'd10, 8'd15, 8'd21, 8'd6, 8'd10, 8'd15, 8'd21, 8'd6, 8'd10, 8'd15, 8'd21
 };
-
+*/
 // SHA256 K constants
 parameter int sha256_k[0:63] = '{
    32'h428a2f98, 32'h71374491, 32'hb5c0fbcf, 32'he9b5dba5, 32'h3956c25b, 32'h59f111f1, 32'h923f82a4, 32'hab1c5ed5,
@@ -56,9 +56,33 @@ endfunction
 function logic [31:0] left_rot_30(input logic [31:0] value);
   left_rot_30 = {value[1:0], value[31:2]};
 endfunction
+function logic [31:0] left_rotate_S(input logic [31:0] x,
+                                   input logic [6:0] t);
+  logic [3:0] i;
+  i = {t[5:4], t[1:0]};
+  case (i)
+  0: left_rotate_S = {x[24:0], x[31:25]}; // leftrotate S[t] = 7
+  1: left_rotate_S = {x[19:0], x[31:20]}; // leftrotate S[t] = 12
+  2: left_rotate_S = {x[14:0], x[31:15]}; // leftrotate S[t] = 17
+  3: left_rotate_S = {x[9:0], x[31:10]}; // leftrotate S[t] = 22
+  4: left_rotate_S = {x[26:0], x[31:27]}; // leftrotate S[t] = 5
+  5: left_rotate_S = {x[22:0], x[31:23]}; // leftrotate S[t] = 9
+  6: left_rotate_S = {x[17:0], x[31:18]}; // leftrotate S[t] = 14
+  7: left_rotate_S = {x[11:0], x[31:12]}; // leftrotate S[t] = 20
+  8: left_rotate_S = {x[27:0], x[31:28]}; // leftrotate S[t] = 4
+  9: left_rotate_S = {x[20:0], x[31:21]}; // leftrotate S[t] = 11
+  10: left_rotate_S = {x[15:0], x[31:16]}; // leftrotate S[t] = 16
+  11: left_rotate_S = {x[8:0], x[31:9]}; // leftrotate S[t] = 23
+  12: left_rotate_S = {x[25:0], x[31:26]}; // leftrotate S[t] = 6
+  13: left_rotate_S = {x[21:0], x[31:22]}; // leftrotate S[t] = 10
+  14: left_rotate_S = {x[16:0], x[31:17]}; // leftrotate S[t] = 15
+  default: left_rotate_S = {x[10:0], x[31:11]}; // leftrotate S[t] = 21
+  endcase
+endfunction
+
 
 function logic [159:0] sha1_hash_op(input logic [31:0] a, b, c, d, e, w,
-                               input logic [7:0] t);
+                                    input logic [7:0] t);
   logic [31:0] k, f, temp;
 
   if (t <= 19) begin
@@ -88,7 +112,7 @@ function logic [159:0] sha1_hash_op(input logic [31:0] a, b, c, d, e, w,
 endfunction
 
 function logic [127:0] md5_hash_op(input logic [31:0] a, b, c, d, w,
-                               input logic [7:0] t);
+                                   input logic [6:0] t);
   logic [31:0] f, temp1, temp2;
 
   if (t <= 15) begin
@@ -105,21 +129,21 @@ function logic [127:0] md5_hash_op(input logic [31:0] a, b, c, d, w,
   end
 
   temp1 = a + f + md5_k[t] + w;
-  temp2 = b + ((temp1 << md5_S[t]) | (temp1 >> (8'd32-md5_S[t])));
+  temp2 = b + left_rotate_S(temp1, t);
 
   md5_hash_op = {d, temp2, b, c};
 endfunction
 
 function logic [255:0] sha256_hash_op(input logic [31:0] a, b, c, d, e, f, g, h, w,
-                               input logic [7:0] t);
+                                      input logic [7:0] t);
   logic [31:0] s0, s1, maj, t2, ch, t1;
 
   s0 = ((a >> 2) | (a << 30)) ^ ((a >> 13) | (a << 19)) ^ ((a >> 22) | (a << 10));
-  maj = (a&b) ^ (a&c) ^ (b&c);
+  maj = (a&b) | (a&c) | (b&c);
   t2 = s0 + maj;
 
   s1 = ((e >> 6) | (e << 26)) ^ ((e >> 11) | (e << 21)) ^ ((e >> 25) | (e << 7));
-  ch = (e&f) ^ (~e&g);
+  ch = (e&f) | (~e&g);
   t1 = h + s1 + ch + sha256_k[t] + w;
 
   sha256_hash_op = {t1+t2, a, b, c, d+t1, e, f, g};
@@ -139,7 +163,7 @@ enum logic [1:0] {IDLE=2'b00, COMP=2'b01, READ=2'b10, WRITE=2'b11} state;
 logic [15:0] rc, wc;
 
 // Keep track of SHA-1 computation steps wtih t
-logic [7:0] t;
+logic [6:0] t;
 
 // Create 16 32-bit words to hold current and past values of W
 logic [31:0] w[0:15];
@@ -147,9 +171,10 @@ logic [31:0] w[0:15];
 // Create H registers to hold hash_block outputs
 logic [31:0] h0, h1, h2, h3, h4, h5, h6, h7;
 
-//create registers to hold intermediate hash_block outputs
+// Create registers to hold intermediate hash_block outputs
 logic [31:0] a, b, c, d, e, f, g, h;
 
+// Create logic to hold the w input for a hash op
 logic [31:0] w_in;
 always_comb begin
   if (t <= 15) begin

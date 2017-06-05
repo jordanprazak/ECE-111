@@ -262,12 +262,12 @@ begin
     dpsram[message_addr+0] = message_seed;
     dpsram_tb[0] = message_seed;
 
-    $display("%x\n", dpsram[message_addr]);
+    //$display("%x\n", dpsram[message_addr]);
 
     for (m = 1; m < (message_size-1)/4+1; m = m + 1) begin // data generation
         dpsram[message_addr+m] = (dpsram[message_addr+m-1]<<1)|(dpsram[message_addr+m-1]>>31);
         dpsram_tb[m] = dpsram[message_addr+m];
-        $display("%x\n", dpsram[message_addr+m]);
+        //$display("%x\n", dpsram[message_addr+m]);
     end
 
     // START PROCESSOR
